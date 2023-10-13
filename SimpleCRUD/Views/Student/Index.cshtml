@@ -1,0 +1,32 @@
+﻿@model List<SimpleCRUD.Models.Domain.Student>
+@{
+}
+<h1>List of All Students</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Phone No.</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Department</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Roll</td>
+                <td>@student.Name</td>
+                <td>@student.PhoneNumber</td>
+                <td>@student.Email</td>
+                <td>@student.DOB.ToString("dd MMMM yyyy")</td>
+                <td>@student.Department</td>
+                <td><button type="button" class="btn btn-outline-primary btn-sm"><a href="Student/Edit/@student.Id">Edit</a></button></td>
+                <td><button type="button" class="btn btn-sm btn-danger"><a href="Student/Delete/@student.Id">Delete</a></button></td>
+            </tr>            
+        }        
+    </tbody>
+</table>
